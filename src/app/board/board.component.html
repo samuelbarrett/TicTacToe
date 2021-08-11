@@ -1,0 +1,18 @@
+<h1>Current Player: {{ player }} </h1>
+
+<!-- Why do I not get autocomplete/intellisense prompts when giving the button a click event? BTW this is HTML comment syntax lol -->
+<button nbButton outline status="danger" (click)="newGame()">Start new Game</button>
+
+<!-- *ngIf is a 'structural directive' that makes this div only render when its parameter evaluates to true -->
+<h2 *ngIf="winner">
+	Player {{ winner }} won the game!
+</h2>
+
+<main>
+	<app-square
+		*ngFor="let val of squares; let i = index"
+		[value]="val"
+		(click)="makeMove(i)">
+	</app-square>
+</main>
+
